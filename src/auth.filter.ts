@@ -1,7 +1,7 @@
-import { ArgumentsHost, Catch, ExceptionFilter, ForbiddenException, HttpException, HttpStatus, Inject, Logger } from '@nestjs/common';
+import { ArgumentsHost, Catch, ExceptionFilter, HttpException, HttpStatus, Inject, Logger } from '@nestjs/common';
 import { IdService } from './Id.service';
 
-@Catch(ForbiddenException)
+@Catch(HttpException)
 export class AuthExceptionFilter implements ExceptionFilter {
   constructor(
     @Inject(IdService) private readonly idService: IdService,
